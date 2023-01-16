@@ -10,7 +10,7 @@ pipeline {
                 trendsLimit: 10,
                 classifications: [
                     [
-                      
+
                        'key': 'Browser',
                         'value': 'Firefox'
 
@@ -18,6 +18,13 @@ pipeline {
                 ]
                 junit 'build/test-results/test/TEST-Matrix.xml'
             }
+             stage ('Code Analysis') { // la phase build
+            steps {
+                                withSonarQubeEnv('sonar'){
+                bat 'gradle sonarqube'
+                                }
+            }
+         }
          }
         
     }
