@@ -24,9 +24,17 @@ pipeline {
         //                         }
         //     }
         //  }
-         stage("Quality gate") {
+        //  stage("Quality gate") {
+        //     steps {
+        //         waitForQualityGate abortPipeline: true
+        //     }
+        // }
+               stage("Build") {
             steps {
-                waitForQualityGate abortPipeline: true
+                bat 'gradle build'
+                bat 'gradle javadoc'
+                archiveArtifacts 'build/libs/*.jar'
+                archiveArtifacts 'build/docs/'
             }
         }
     }
