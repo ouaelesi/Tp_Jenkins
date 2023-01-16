@@ -37,5 +37,12 @@ pipeline {
                 archiveArtifacts 'build/docs/'
             }
         }
+
+           stage("deploy") {
+            steps {
+                bat 'gradle publish'
+
+            }
+        }
     }
     }
