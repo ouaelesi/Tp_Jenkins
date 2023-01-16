@@ -7,8 +7,9 @@ pipeline {
                 archiveArtifacts 'build/test-results/'
                 cucumber reportTitle: 'Cucumber report',
                 fileIncludePattern: 'target/report.json',
-                trendsLimit: 10,
                 
+                trendsLimit: 10,
+
                 classifications: [
                     [
                 
