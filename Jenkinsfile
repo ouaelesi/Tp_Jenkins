@@ -13,7 +13,6 @@ pipeline {
                     [
                        'key': 'Browser',
                         'value': 'Firefox'
-
                     ]
                 ]
                 junit 'build/test-results/test/TEST-Matrix.xml'
