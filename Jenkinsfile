@@ -8,7 +8,6 @@ pipeline {
                 cucumber reportTitle: 'Cucumber report',
                 fileIncludePattern: 'target/report.json',
                 trendsLimit: 10,
-
                 classifications: [
                     [
                        'key': 'Browser',
