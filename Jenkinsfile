@@ -19,7 +19,9 @@ pipeline {
          }
            stage ('Code Analysis') { // la phase build
             steps {
-                bat 'gradle sonar'               
+                                withSonarQubeEnv('sonar'){
+                bat 'gradle sonar'
+                                }
             }
          }
     }
