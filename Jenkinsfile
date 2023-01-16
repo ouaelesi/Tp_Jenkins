@@ -19,7 +19,6 @@ pipeline {
          }
            stage ('Code Analysis') { // la phase build
             steps {
-                        
                 bat 'gradle sonarqube'               
             }
          }
