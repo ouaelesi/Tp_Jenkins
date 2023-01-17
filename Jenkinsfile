@@ -28,7 +28,7 @@ pipeline {
         //     steps {
         //         waitForQualityGate abortPipeline: true
         //     }
-        
+
         // }
                stage("Build") {
             steps {
@@ -42,6 +42,12 @@ pipeline {
            stage("deploy") {
             steps {
                 bat 'gradle publish'
+
+            }
+        }
+                  stage("notification") {
+            steps {
+                 notifyEvents message: 'Pipeline <b> is sucessufuly termined</b>', token: '3mD8_X1iRhMU2V88vV2lDJmefzwSu1-F'
 
             }
         }
