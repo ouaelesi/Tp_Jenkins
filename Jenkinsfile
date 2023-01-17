@@ -22,7 +22,7 @@ pipeline {
           stage ('Code Analysis') { // la phase build
             steps {
                                 withSonarQubeEnv('sonar'){
-                bat 'gradle sonarqube --info'
+                bat 'gradle sonarqube --debug'
                                 }
             }
          }
