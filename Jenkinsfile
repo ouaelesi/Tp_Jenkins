@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     stages {
@@ -17,20 +18,20 @@ pipeline {
                 junit 'build/test-results/test/TEST-Matrix.xml'
             }
          }
-           stage ('Code Analysis') { // la phase build
+        
+          stage ('Code Analysis') { // la phase build
             steps {
                                 withSonarQubeEnv('sonar'){
-                bat 'gradle sonar'
+                bat 'gradle sonarqube'
                                 }
             }
          }
-         stage("Quality gate") {
+          stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
             }
-
         }
-               stage("Build") {
+                  stage("Build") {
             steps {
                 bat 'gradle build'
                 bat 'gradle javadoc'
@@ -38,18 +39,31 @@ pipeline {
                 archiveArtifacts 'build/docs/'
             }
         }
-
-           stage("deploy") {
+             stage("deploy") {
             steps {
                 bat 'gradle publish'
 
             }
         }
-                  stage("notification") {
+                         stage("notification") {
             steps {
                  notifyEvents message: 'Pipeline <b> is sucessufuly termined</b>', token: '3mD8_X1iRhMU2V88vV2lDJmefzwSu1-F'
 
             }
         }
+
     }
+            post {
+
+        failure {
+            mail bcc: '', body: '''process Failed!!!!
+Soory chamsou''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'jc_berkane@esi.dz'
+        }
+
+}
+
     }
+
+   
+
+

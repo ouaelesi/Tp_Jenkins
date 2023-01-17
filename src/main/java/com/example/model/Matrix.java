@@ -9,6 +9,7 @@ public class Matrix {
 	public Matrix() {
 	}
 
+
 	public double[][] getData() {
 		return data;
 	}
@@ -74,6 +75,11 @@ public class Matrix {
 			}
 		}
 		return mat;
+	}
+
+	@Override
+	public int hashCode(){
+		return this.getNcols() * this.getNrows();
 	}
 
 
