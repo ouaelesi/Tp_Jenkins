@@ -53,14 +53,14 @@ pipeline {
         }
 
     }
-            post {
+//             post {
 
-        failure {
-            mail bcc: '', body: '''process Failed!!!!
-Soory chamsou''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'jc_berkane@esi.dz'
-        }
+//         failure {
+//             mail bcc: '', body: '''process Failed!!!!
+// Soory chamsou''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'jo_berkane@esi.dz'
+//         }
 
-}
+// }
 
     }
 
