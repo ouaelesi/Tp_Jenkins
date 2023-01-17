@@ -17,19 +17,19 @@ pipeline {
                 junit 'build/test-results/test/TEST-Matrix.xml'
             }
          }
-        //    stage ('Code Analysis') { // la phase build
-        //     steps {
-        //                         withSonarQubeEnv('sonar'){
-        //         bat 'gradle sonar'
-        //                         }
-        //     }
-        //  }
-        //  stage("Quality gate") {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
+           stage ('Code Analysis') { // la phase build
+            steps {
+                                withSonarQubeEnv('sonar'){
+                bat 'gradle sonar'
+                                }
+            }
+         }
+         stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
 
-        // }
+        }
                stage("Build") {
             steps {
                 bat 'gradle build'
