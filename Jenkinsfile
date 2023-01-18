@@ -58,10 +58,11 @@ pipeline {
 
 //         failure {
 //             mail bcc: '', body: '''process Failed!!!!
-// Soory chamsou''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'jo_berkane@esi.dz'
+// Soory chamsou''', cc: '', from: '', replyTo: '', subject: 'process Faild', to: 'jo_sahbi@esi.dz'
 //         }
 
 // }
+
 
     }
 
